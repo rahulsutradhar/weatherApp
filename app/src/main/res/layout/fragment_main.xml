@@ -1,0 +1,338 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="MainFragmentBinding">
+
+        <import
+            alias="ViewModel"
+            type="com.recipie.rahulweather.viewmodel.MainFragmentViewModel" />
+
+        <variable
+            name="viewModel"
+            type="ViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary_brand"
+            android:elevation="5dp"
+            app:titleTextColor="@color/primary_text">
+
+            <RelativeLayout
+                android:id="@+id/container_custom_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/title_view"
+                    style="@style/AppTheme.Toolbar.TitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    android:text="@{viewModel.title}"
+                    android:textColor="@color/primary_text"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- weather of chicago -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/weather_repost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:padding="16dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/AppTheme.Widget.TextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@android:color/transparent"
+                                    android:gravity="center"
+                                    android:padding="16dp"
+                                    android:text="@{viewModel.currentTemperature}"
+                                    android:textColor="@color/text_color"
+                                    android:textSize="50sp"
+                                    android:textStyle="normal" />
+
+                                <TextView
+                                    style="@style/AppTheme.Widget.TextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@android:color/transparent"
+                                    android:gravity="center"
+                                    android:padding="8dp"
+                                    android:text="@{viewModel.skyCondition}"
+                                    android:textColor="@color/text_color"
+                                    android:textSize="16sp"
+                                    android:textStyle="normal" />
+
+                                <TextView
+                                    style="@style/AppTheme.Widget.TextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@android:color/transparent"
+                                    android:gravity="center"
+                                    android:padding="8dp"
+                                    android:text="@{viewModel.currentDate}"
+                                    android:textColor="@color/text_color"
+                                    android:textSize="14sp"
+                                    android:textStyle="normal" />
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/background_dotted" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <TextView
+                                            android:id="@+id/sunrise"
+                                            style="@style/AppTheme.Widget.TextView"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@android:color/transparent"
+                                            android:gravity="center"
+                                            android:padding="8dp"
+                                            android:text="Sunrise:"
+                                            android:textColor="@color/text_color"
+                                            android:textSize="12sp"
+                                            android:textStyle="normal" />
+
+                                        <TextView
+                                            style="@style/AppTheme.Widget.TextView"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_toRightOf="@+id/sunrise"
+                                            android:background="@android:color/transparent"
+                                            android:gravity="center"
+                                            android:paddingBottom="8dp"
+                                            android:paddingRight="8dp"
+                                            android:paddingTop="8dp"
+                                            android:text="@{viewModel.sunrise}"
+                                            android:textColor="@color/text_color"
+                                            android:textSize="12sp"
+                                            android:textStyle="normal" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <TextView
+                                            android:id="@+id/sunset"
+                                            style="@style/AppTheme.Widget.TextView"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@android:color/transparent"
+                                            android:gravity="center"
+                                            android:padding="8dp"
+                                            android:text="Sunset:"
+                                            android:textColor="@color/text_color"
+                                            android:textSize="12sp"
+                                            android:textStyle="normal" />
+
+                                        <TextView
+                                            style="@style/AppTheme.Widget.TextView"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_toRightOf="@+id/sunset"
+                                            android:background="@android:color/transparent"
+                                            android:gravity="center"
+                                            android:paddingBottom="8dp"
+                                            android:paddingRight="8dp"
+                                            android:paddingTop="8dp"
+                                            android:text="@{viewModel.sunset}"
+                                            android:textColor="@color/text_color"
+                                            android:textSize="12sp"
+                                            android:textStyle="normal" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <TextView
+                                            android:id="@+id/pressure"
+                                            style="@style/AppTheme.Widget.TextView"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@android:color/transparent"
+                                            android:gravity="center"
+                                            android:padding="8dp"
+                                            android:text="Pressure:"
+                                            android:textColor="@color/text_color"
+                                            android:textSize="12sp"
+                                            android:textStyle="normal" />
+
+                                        <TextView
+                                            style="@style/AppTheme.Widget.TextView"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_toRightOf="@+id/pressure"
+                                            android:background="@android:color/transparent"
+                                            android:gravity="center"
+                                            android:paddingBottom="8dp"
+                                            android:paddingRight="8dp"
+                                            android:paddingTop="8dp"
+                                            android:text="@{viewModel.currentPressure}"
+                                            android:textColor="@color/text_color"
+                                            android:textSize="12sp"
+                                            android:textStyle="normal" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <TextView
+                                            android:id="@+id/wind"
+                                            style="@style/AppTheme.Widget.TextView"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@android:color/transparent"
+                                            android:gravity="center"
+                                            android:padding="8dp"
+                                            android:text="Wind:"
+                                            android:textColor="@color/text_color"
+                                            android:textSize="12sp"
+                                            android:textStyle="normal" />
+
+                                        <TextView
+                                            style="@style/AppTheme.Widget.TextView"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_toRightOf="@+id/wind"
+                                            android:background="@android:color/transparent"
+                                            android:gravity="center"
+                                            android:paddingBottom="8dp"
+                                            android:paddingRight="8dp"
+                                            android:paddingTop="8dp"
+                                            android:text="@{viewModel.currentWind}"
+                                            android:textColor="@color/text_color"
+                                            android:textSize="12sp"
+                                            android:textStyle="normal" />
+                                    </RelativeLayout>
+
+
+                                </LinearLayout>
+                            </RelativeLayout>
+                        </LinearLayout>
+
+
+                        <!-- so temperature -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                style="@style/AppTheme.Widget.TextView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="@{viewModel.currentLocation}"
+                                android:textColor="@color/text_color"
+                                android:textSize="18sp"
+                                android:textStyle="normal" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </RelativeLayout>
+
+            <!-- weather forecast -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/weatherForecast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:paddingBottom="10dp"
+                    android:scrollbars="vertical">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
